@@ -60,7 +60,6 @@ def orbit_data(f, x0):
     o run forever
     trying to find one.)
     """
-    #123 454545
     initial= [x0]
     next_term = f(x0)
     initial.append(next_term)
@@ -181,6 +180,15 @@ def smallest_first(L):
     new_list = L[-1:]+ L[:-1]
     return new_list
 
+def compareLists(lst, final_list):
+        lst.sort()
+        for l in final_list:
+            l.sort()
+            if (l == lst):
+                return True
+        return False
+        pass
+
 
 def find_cycles(f, start_vals):
     """
@@ -200,3 +208,19 @@ def find_cycles(f, start_vals):
     cycle and 66 ends up in the [38,51] cycle.
     """
     # PUT THE BODY OF find_cycles HERE AND DELETE THIS LINE
+    
+
+
+
+
+    lst = []
+    final_list = []
+    for x in start_vals:
+        dict = orbit_data(f, x)
+        lst = dict["cycle"]
+        if ( not compareLists(lst, final_list)):
+            final_list.append(lst)
+
+    return final_list 
+   
+
