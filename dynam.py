@@ -72,7 +72,7 @@ def orbit_data(f, x0):
             break;
         else:
             initial.append(next_term)
-    dict = {"index":initial_original, "cycle":cycle}
+    dict = {"initial":initial_original, "cycle":cycle}
     return dict
 
 
