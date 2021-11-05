@@ -1,3 +1,9 @@
+'''
+Writing a module of functions that can be used to study the iteration of any function
+For example, the module dynam  is going to contain a function
+orbit(f,x0,n) that computes the first n terms of the orbit of x0 under function f
+'''
+
 def orbit(f, x0, n):
 
     """
@@ -132,7 +138,7 @@ def steps_to_enter_cycle(f, x0):
     trying to find one.)
     """
     dict = orbit_data(f,x0)
-    initial_value = dict.get("index")
+    initial_value = dict.get("initial")
     return len(initial_value)
 
 
@@ -177,7 +183,10 @@ def smallest_first(L):
     Example: smallest_first([4,2,1]) returns [1,4,2]
     Example: smallest_first([9,8,7,6,5,4,3,2,1]) returns [1,9,8,7,6,5,4,3,2]
     """
-    new_list = L[-1:]+ L[:-1]
+    n=len(L)
+    minimum = min(L)
+    d = L.index(minimum)
+    new_list = L[d:n]+L[0:d]
     return new_list
 
 def compareLists(lst, final_list):
