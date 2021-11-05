@@ -1,8 +1,8 @@
-'''
+"""
 Writing a module of functions that can be used to study the iteration of any function
 For example, the module dynam  is going to contain a function
 orbit(f,x0,n) that computes the first n terms of the orbit of x0 under function f
-'''
+"""
 
 def orbit(f, x0, n):
 
