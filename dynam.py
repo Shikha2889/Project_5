@@ -1,8 +1,8 @@
-"""
+'''
 Writing a module of functions that can be used to study the iteration of any function
 For example, the module dynam  is going to contain a function
 orbit(f,x0,n) that computes the first n terms of the orbit of x0 under function f
-"""
+'''
 
 def orbit(f, x0, n):
 
@@ -189,14 +189,7 @@ def smallest_first(L):
     new_list = L[d:n]+L[0:d]
     return new_list
 
-def compareLists(lst, final_list):
-        lst.sort()
-        for l in final_list:
-            l.sort()
-            if (l == lst):
-                return True
-        return False
-        pass
+
 
 
 def find_cycles(f, start_vals):
@@ -218,16 +211,15 @@ def find_cycles(f, start_vals):
     """
     # PUT THE BODY OF find_cycles HERE AND DELETE THIS LINE
     
-
-
-
-
     lst = []
     final_list = []
+    final_list_sorted = []
     for x in start_vals:
         dict = orbit_data(f, x)
         lst = dict["cycle"]
-        if ( not compareLists(lst, final_list)):
+        lst_A= sorted(lst)
+        if lst_A not in final_list_sorted:
+            final_list_sorted.append(lst_A)
             final_list.append(lst)
 
     return final_list 
